@@ -3,6 +3,13 @@
 Make a app like this and upldoad the video in Google drive them share the link as an assignment 
 ![image](https://user-images.githubusercontent.com/43641536/235098620-7620a158-9975-466e-b520-a91d73d8ecb3.png)
 
+Record Video:
+https://drive.google.com/file/d/1CMPx0hHKkHWZEhT7lg0ZQxOydn-zeXZB/view?usp=share_link
+
+Code: https://github.com/biplobsd/CSE334-5/tree/fragment-quiz
+
+[Download code zip](https://github.com/biplobsd/CSE334-5/archive/refs/heads/fragment-quiz.zip)
+
 ## Dataflow
 ![image](https://user-images.githubusercontent.com/43641536/235098873-588f85bf-177b-48a2-b54b-95e541b91b97.png)
 
