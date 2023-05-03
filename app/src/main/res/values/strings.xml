@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GalibTest</string>
+    <string-array name="dropdownOptions">
+        <item>USD to BDT</item>
+        <item>BMI calculator</item>
+    </string-array>
+</resources>
