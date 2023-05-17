@@ -1,21 +1,19 @@
 # CSE334-5
 
-Make a app like this and upldoad the video in Google drive them share the link as an assignment 
-![image](https://user-images.githubusercontent.com/43641536/235098620-7620a158-9975-466e-b520-a91d73d8ecb3.png)
+You have to make a tutorial video based on the following topic using your own voice.
+Language:  English, Bangla, Hindi
 
-Record Video:
-https://drive.google.com/file/d/1CMPx0hHKkHWZEhT7lg0ZQxOydn-zeXZB/view?usp=share_link
+Tutorial Video:
+1. Fragment Example video: https://www.youtube.com/watch?v=c_Q7CO5ZAtI
+2. Insert Data to Firebase: https://www.youtube.com/watch?v=6-Jnt8Wlg-w
+3. Insert Multiple Data Insertion: https://www.youtube.com/watch?v=SpRPWojdh90&list=PLUY18NsRvejMnrUOKNcQ-NV0tTQovV9k_&index=2
 
-Code: https://github.com/biplobsd/CSE334-5/tree/fragment-quiz
+Code: https://github.com/biplobsd/CSE334-5/tree/lab-performance
 
-[Download code zip](https://github.com/biplobsd/CSE334-5/archive/refs/heads/fragment-quiz.zip)
-
-## Dataflow
-![image](https://user-images.githubusercontent.com/43641536/235098873-588f85bf-177b-48a2-b54b-95e541b91b97.png)
-
-[More info](https://www.youtube.com/watch?v=rpzuEN8UhUQ)
+[Download code zip](https://github.com/biplobsd/CSE334-5/archive/refs/heads/lab-performance.zip)
 
 ## Screenshots 
-![Screenshot_2023-04-28-14-33-42-178_com example quizfragment](https://user-images.githubusercontent.com/43641536/235098452-1c350847-a3ad-4a5a-a5ec-af6b46334dfd.jpg)
-![Screenshot_2023-04-28-14-33-45-181_com example quizfragment](https://user-images.githubusercontent.com/43641536/235098370-1f4f58db-59ae-4881-b011-b2e60f079db5.jpg)
-![Screenshot_2023-04-28-14-33-47-793_com example quizfragment](https://user-images.githubusercontent.com/43641536/235098311-991430ba-f5aa-41ec-b407-68a6ef87e502.jpg)
+![image](https://github.com/biplobsd/CSE334-5/assets/43641536/478a34f8-011a-44ef-b8e5-a10ce219f1ca)
+![image](https://github.com/biplobsd/CSE334-5/assets/43641536/457d18ae-4ee2-46a3-b565-9bd05f7ff662)
+![image](https://github.com/biplobsd/CSE334-5/assets/43641536/0a07a0f8-f4f2-4a78-a5d1-da2aef3ad8ff)
+![image](https://github.com/biplobsd/CSE334-5/assets/43641536/906cb662-11da-412a-8d0c-192115e02522)
