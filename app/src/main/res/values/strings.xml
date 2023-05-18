@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Datapass</string>
+
+    <string-array name="planets_array">
+    <item>Pick a option</item>
+    <item>Datapass</item>
+    <item>Counter</item>
+    </string-array>
+</resources>
