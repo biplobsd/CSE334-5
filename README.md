@@ -8,6 +8,8 @@ Tutorial Video:
 2. Insert Data to Firebase: https://www.youtube.com/watch?v=6-Jnt8Wlg-w
 3. Insert Multiple Data Insertion: https://www.youtube.com/watch?v=SpRPWojdh90&list=PLUY18NsRvejMnrUOKNcQ-NV0tTQovV9k_&index=2
 
+
+Tutorial video: https://youtu.be/ww3S0OsXN3I
 Code: https://github.com/biplobsd/CSE334-5/tree/lab-performance
 
 [Download code zip](https://github.com/biplobsd/CSE334-5/archive/refs/heads/lab-performance.zip)
