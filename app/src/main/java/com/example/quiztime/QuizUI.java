@@ -29,10 +29,10 @@ public class QuizUI extends AppCompatActivity {
     private FirebaseAuth mAuth;
     public static String DATABASE_KEY = "users";
     Quiz quiz;
-    TextView prg, question;
+    TextView prg, question, tv;
     List<RadioButton> radioButtons = new ArrayList<>(4);
-    int progress = 0;
-    List<Integer> scoreList;
+    public int progress = 0;
+    List<List<Integer>> scoreList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class QuizUI extends AppCompatActivity {
         quiz = (Quiz) intent.getSerializableExtra(QUIZ_LOAD_KEY);
 
         Toast.makeText(this, quiz.toString(), Toast.LENGTH_SHORT).show();
-        TextView tv = findViewById(R.id.quizID);
+        tv = findViewById(R.id.quizID);
         question = findViewById(R.id.question);
          prg = findViewById(R.id.quizProgress);
 
@@ -55,13 +55,16 @@ public class QuizUI extends AppCompatActivity {
         radioButtons.add(findViewById(R.id.q3));
         radioButtons.add(findViewById(R.id.q4));
 
-        tv.setText("#" + quiz.getId());
-        prg.setText(progress+1 +"/"+quiz.getLength());
-
         scoreList = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            scoreList.add(0);
+        for (int i = 0; i < quiz.getLength(); i++) {
+            List<Integer> scoreItem = new ArrayList<>();
+            for (int j = 0; j < 4; j++) {
+                scoreItem.add(0);
+            }
+            scoreList.add(scoreItem);
         }
+
+
 
         loadQuiz(progress);
 
@@ -69,6 +72,9 @@ public class QuizUI extends AppCompatActivity {
     }
 
     private  void loadQuiz(int position){
+        tv.setText("#" + quiz.getId());
+        prg.setText(progress+1 +"/"+quiz.getLength());
+
         List<QuizItem> qI = quiz.getItems();
         Log.d(TAG, "QuizItem" + qI.toString());
         question.setText(qI.get(position).getTitle());
@@ -81,23 +87,21 @@ public class QuizUI extends AppCompatActivity {
             rb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (quizItem.getAnswer() == finalI){
-                        scoreList.set(finalI, 5);
-                    }else{
-                        scoreList.set(finalI, 0);
+                    for (int j = 0; j < 4; j++) {
+                        scoreList.get(position).set(j, finalI == j && quizItem.getAnswer() == finalI ? 5 : 0);
                     }
-
-                    Toast.makeText(QuizUI.this, ""+scoreList.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizUI.this, scoreList.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
-
-
     }
 
     public void nextFun(View view) {
-        FirebaseUser user = mAuth.getCurrentUser();
-        mDatabase.child(DATABASE_KEY).child(user.getDisplayName()).setValue(new User(user.getDisplayName(), quiz.getId(), 5));
-        startActivity(new Intent(this, Leaderboard.class));
+        progress++;
+        if(progress < quiz.getLength()){
+            loadQuiz(progress);
+        }else {
+            startActivity(new Intent(this, Leaderboard.class));
+        }
     }
 }
