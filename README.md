@@ -6,7 +6,7 @@ QuizTime is a simple quiz app that allows users to participate in quizzes. The a
 - Firebase Firestore
 
 ## APP Try
-[Download APK]()
+[Download APK](https://github.com/biplobsd/CSE334-5/releases/download/v1.0/QuizTime-release.apk)
 
 ## Usage
 Quiz Participation without Account Creation
