@@ -68,4 +68,13 @@ public class Login extends AppCompatActivity {
                 });
 
     }
+
+    public void forgotFun(View view) {
+        Toast.makeText(this, "Not implemented yet!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void registerFun(View view) {
+        startActivity(new Intent(this, Register.class));
+        finish();
+    }
 }

@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Home extends AppCompatActivity {
     EditText quizId;
@@ -34,5 +37,16 @@ public class Home extends AppCompatActivity {
 
     public void createQuizFun(View view) {
         startActivity(new Intent(this, CreateQuiz.class));
+    }
+
+    public void deleteFun(View view) {
+        Toast.makeText(this, "Not implemented yet!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void signOutFun(View view) {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+
     }
 }

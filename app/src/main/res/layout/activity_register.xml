@@ -73,6 +73,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/purple_700"
+            android:onClick="loginFun"
             android:text="Login" />
 
         <TextView
@@ -80,7 +81,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Forgot password"
-
+            android:onClick="forgotFun"
             android:textColor="@color/purple_700" />
     </LinearLayout>
 

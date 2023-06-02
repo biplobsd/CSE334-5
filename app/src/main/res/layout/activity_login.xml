@@ -57,12 +57,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:onClick="registerFun"
             android:text="Not register yet?" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:onClick="forgotFun"
             android:text="Forgot password"
             android:textColor="@color/purple_700" />
     </LinearLayout>

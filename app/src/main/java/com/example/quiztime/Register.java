@@ -83,4 +83,13 @@ public class Register extends AppCompatActivity {
                     }
                 });
     }
+
+    public void forgotFun(View view) {
+        Toast.makeText(this, "Not implemented yet!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void loginFun(View view) {
+        startActivity(new Intent(this, Login.class));
+        finish();
+    }
 }

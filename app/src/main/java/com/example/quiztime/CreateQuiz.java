@@ -31,14 +31,13 @@ public class CreateQuiz extends AppCompatActivity {
     FirebaseDatabase database;
     private int length = 0;
     private int position = 0;
-    private TextView progress;
+    private TextView progress, createQuiz;
     private List<QuizItem> quizItems;
 
     public Quiz quizRoot;
 
-
-
     void setLength(int l) {
+        createQuiz.setText("Create quiz");
         quizItems = new ArrayList<QuizItem>(l);
         progress.setText((position + 1) + "/" + l);
         length = l;
@@ -57,6 +56,10 @@ public class CreateQuiz extends AppCompatActivity {
     public void changeFragment(QuizItem quizItemInput) {
         setQuizItem(quizItemInput);
         if (position == length) {
+            loadFragment(new CreateQuizLoading());
+            createQuiz.setText("");
+            progress.setText("");
+
             Quiz quiz = new Quiz(length, quizItems);
             Toast.makeText(this, quiz.toString(), Toast.LENGTH_SHORT).show();
 
@@ -94,7 +97,6 @@ public class CreateQuiz extends AppCompatActivity {
                                                 }
                                             }
                                         });
-
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
@@ -118,6 +120,7 @@ public class CreateQuiz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_quiz);
         progress = findViewById(R.id.progress);
+        createQuiz = findViewById(R.id.createQuiz);
 
         loadFragment(new CreateQuizLenFragment());
         db = FirebaseFirestore.getInstance();
