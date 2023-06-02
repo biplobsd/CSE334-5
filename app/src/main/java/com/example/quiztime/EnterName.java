@@ -25,8 +25,10 @@ public class EnterName extends AppCompatActivity {
 
     public void nextFun(View view) {
         String nameString = name.getText().toString().trim();
+        String errorTxt = "Enter any name";
         if(nameString.length() == 0){
-            Toast.makeText(this, "Enter any name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, errorTxt, Toast.LENGTH_SHORT).show();
+            name.setError(errorTxt);
             return;
         }
         Intent i = new Intent(this, QuizLoad.class);

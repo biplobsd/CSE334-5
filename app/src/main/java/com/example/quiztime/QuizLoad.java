@@ -11,9 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.quiztime.model.Quiz;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -37,21 +40,27 @@ public class QuizLoad extends AppCompatActivity {
 
         db.collection(FIRESTORE_QUIZ).whereEqualTo("id", quizId)
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            QuerySnapshot document = task.getResult();
-                            List<Quiz> quizzes = document.toObjects(Quiz.class);
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        if(!queryDocumentSnapshots.isEmpty()) {
+                            List<Quiz> quizzes = queryDocumentSnapshots.toObjects(Quiz.class);
                             Intent i = new Intent(QuizLoad.this, QuizUI.class);
                             i.putExtra(QUIZ_LOAD_KEY, quizzes.get(0));
                             i.putExtra(USER_NAME, userName);
                             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(i);
                             finish();
-                        } else {
-                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }else{
+                            Toast.makeText(QuizLoad.this, "Quiz id not found!", Toast.LENGTH_SHORT).show();
+                            finish();
                         }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(QuizLoad.this, "Quiz id not found!", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 });
     }

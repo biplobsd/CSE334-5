@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="questionCorrent">
-        <item>Choose an option</item>
+        <item>Choose a correct option</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>

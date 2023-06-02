@@ -24,7 +24,14 @@
 
         <EditText
             android:inputType="textEmailAddress"
-            android:id="@+id/username"
+            android:id="@+id/fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Full name" />
+        <EditText
+            android:inputType="textEmailAddress"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

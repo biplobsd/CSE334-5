@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -36,25 +37,40 @@ public class CreateQuizInsertDataFragment extends Fragment {
         op3 = v.findViewById(R.id.op3);
         op4 = v.findViewById(R.id.op4);
 
-
-
         sp = v.findViewById(R.id.spinner);
 
         btn = v.findViewById(R.id.nextFun);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<String> list=new ArrayList<String>();
-                list.add(op1.getText().toString());
-                list.add(op2.getText().toString());
-                list.add(op3.getText().toString());
-                list.add(op4.getText().toString());
+                String questionTxt = question.getText().toString();
+                String op1Txt = op1.getText().toString();
+                String op2Txt = op2.getText().toString();
+                String op3Txt = op3.getText().toString();
+                String op4Txt = op4.getText().toString();
 
-                QuizItem quizItem = new QuizItem(question.getText().toString(), Integer.parseInt(sp.getSelectedItem().toString())-1, list);
+                if(questionTxt.length() == 0 || op1Txt.length() == 0 || op2Txt.length() == 0  || op3Txt.length() == 0 || op4Txt.length() == 0){
+                    Toast.makeText(getActivity(), "Enter valid quiz", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                List<String> list=new ArrayList<String>();
+                list.add(op1Txt);
+                list.add(op2Txt);
+                list.add(op3Txt);
+                list.add(op4Txt);
+
+                QuizItem quizItem = new QuizItem(questionTxt, Integer.parseInt(sp.getSelectedItem().toString())-1, list);
 
                 CreateQuiz cq = ((CreateQuiz) getActivity());
                 assert cq != null;
                 cq.changeFragment(quizItem);
+                question.setText("");
+                op1.setText("");
+                op2.setText("");
+                op3.setText("");
+                op4.setText("");
+                sp.setSelection(1);
             }
         });
 

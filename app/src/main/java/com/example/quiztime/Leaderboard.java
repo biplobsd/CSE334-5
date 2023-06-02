@@ -44,7 +44,7 @@ public class Leaderboard extends AppCompatActivity {
 
         int quizID = getIntent().getIntExtra(LEADERBOARD_QUIZ_ID_KEY, 0);
         TextView quizIDView = findViewById(R.id.quizID);
-        quizIDView.setText("Quiz ID#"+quizID);
+        quizIDView.setText("Quiz ID #"+quizID);
 
         listView = (ListView) findViewById(R.id.listview);
         db = FirebaseFirestore.getInstance();
