@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startQuiz(View view) {
-        Intent i = new Intent(this, QuizLoad.class);
+        Intent i = new Intent(this, EnterName.class);
         i.putExtra(QUIZ_LOAD_ID, Integer.parseInt(qid.getText().toString()));
         startActivity(i);
     }

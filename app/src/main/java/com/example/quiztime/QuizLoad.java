@@ -2,6 +2,7 @@ package com.example.quiztime;
 
 import static android.content.ContentValues.TAG;
 
+import static com.example.quiztime.EnterName.USER_NAME;
 import static com.example.quiztime.model.Constants.FIRESTORE_QUIZ;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,7 @@ public class QuizLoad extends AppCompatActivity {
 
         Intent i = getIntent();
         int quizId = i.getIntExtra(QUIZ_LOAD_ID, 1);
+        String userName = i.getStringExtra(USER_NAME);
 
         db.collection(FIRESTORE_QUIZ).whereEqualTo("id", quizId)
                 .get()
@@ -43,6 +45,7 @@ public class QuizLoad extends AppCompatActivity {
                             List<Quiz> quizzes = document.toObjects(Quiz.class);
                             Intent i = new Intent(QuizLoad.this, QuizUI.class);
                             i.putExtra(QUIZ_LOAD_KEY, quizzes.get(0));
+                            i.putExtra(USER_NAME, userName);
                             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(i);
                             finish();
